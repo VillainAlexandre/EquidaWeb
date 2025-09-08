@@ -4,6 +4,7 @@
  */
 package model;
 import model.Enchere;
+import model.Vente;
 /**
  *
  * @author sio2
@@ -12,6 +13,7 @@ public class Lot {
     private int id;
     private String prixDepart;
     private Enchere enchere;
+    private Vente vente;
 
     public Lot() {
     }
@@ -47,6 +49,14 @@ public class Lot {
 
     public void setEnchere(Enchere enchere) {
         this.enchere = enchere;
+    }
+
+    public Vente getVente() {
+        return vente;
+    }
+
+    public void setVente(Vente vente) {
+        this.vente = vente;
     }
     
     

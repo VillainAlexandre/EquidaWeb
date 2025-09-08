@@ -8,6 +8,8 @@ import model.Vente;
 import model.Lieu;
 import model.Enchere;
 import model.Lot;
+import model.CategVente;
+
 
 public class TestCheval {
 
@@ -20,10 +22,6 @@ public class TestCheval {
         l.setId(1);
         l.setNbBoxes(8);
         
-        v.setLieu(l);
-        
-        System.out.println("la vente " + v.getNom()+ " " + v.getId() + " auras lieu dans le box " + l.getNbBoxes());
-        
         Enchere e = new Enchere();
         e.setNumero(1);
         e.setMontant(555);
@@ -32,9 +30,21 @@ public class TestCheval {
         lo.setId(1);
         lo.setPrixDepart("52000");
         
+        CategVente c = new CategVente();
+        c.setCode(2);
+        c.setLibelle("vente hiver");
+        
+        v.setLieu(l);
         e.setLot(lo);
+        lo.setVente(v);
+        v.setCategvente(c);
+        
+        System.out.println("la vente " + v.getNom()+ " " + v.getId() + " auras lieu dans le box " + l.getNbBoxes());
         
         System.out.println("l'Enchere " + e.getNumero()+ " du montant " + e.getMontant() + " pour le lot " + lo.getId() + " au prix de depart de " + lo.getPrixDepart());
+
+        System.out.println("le lot " + lo.getId()+ " de la vente " + v.getId());
+        
         
         
         /*

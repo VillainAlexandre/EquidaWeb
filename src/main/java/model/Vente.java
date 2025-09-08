@@ -4,7 +4,7 @@
  */
 package model;
 import model.Lieu;
-
+import model.CategVente;
 /**
  *
  * @author sio2
@@ -14,6 +14,7 @@ public class Vente {
     private String nom;
     private String dateDebutVente; 
     private Lieu lieu;
+    private CategVente categvente;
 
     public Vente() {
     }
@@ -62,6 +63,14 @@ public class Vente {
 
     public void setLieu(Lieu lieu) {
         this.lieu = lieu;
+    }
+
+    public CategVente getCategvente() {
+        return categvente;
+    }
+
+    public void setCategvente(CategVente categvente) {
+        this.categvente = categvente;
     }
     
    
