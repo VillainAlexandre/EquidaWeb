@@ -2,6 +2,8 @@ package test;
 
 import model.CategVente;
 import model.Cheval;
+import model.Enchere;
+import model.Lot;
 import model.Race;
 import model.Vente;
 
@@ -30,6 +32,30 @@ public class TestRace
        
        for (Vente v : c.getLesVentes()){
             System.out.println("Vente numéro : " + v.getId() + " " + v.getNom());
+       }
+       
+       
+       Lot lo = new Lot();
+       lo.setId(7);
+       lo.setPrixDepart("254");
+       
+       Enchere e1 = new Enchere();
+       e1.setNumero(6);
+       e1.setMontant(569);
+       
+       
+       Enchere e2 = new Enchere();
+       e2.setNumero(3);
+       e2.setMontant(954);
+       
+       lo.addEnchere(e1);
+       lo.addEnchere(e2);
+       
+       System.out.println("Le Lot est " + lo.getId()+ " au prix de depart de " + lo.getPrixDepart()+ " de l'Enchere " + e1.getNumero()+ " mais aussi de l'enchere " + e2.getNumero());
+       System.out.println("Liste des Ventes de la categorie de vente : ");
+       
+       for (Enchere e : lo.getLesEncheres()){
+            System.out.println("Enchere numéro : " + e.getNumero()+ " " + e.getMontant());
        }
         /*// instantiation d'une race
         Race r = new Race();
