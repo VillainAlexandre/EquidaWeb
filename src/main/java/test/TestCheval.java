@@ -34,10 +34,21 @@ public class TestCheval {
         c.setCode(2);
         c.setLibelle("vente hiver");
         
+        Cheval ch = new Cheval();
+        ch.setId(2);
+        ch.setNom("Houri");
+        
+        Race r = new Race();
+        r.setId(1);
+        r.setNom("pur-sang");
+        
+        ch.setRace(r);
         v.setLieu(l);
         e.setLot(lo);
         lo.setVente(v);
         v.setCategvente(c);
+        lo.setCheval(ch);
+        
         
         System.out.println("la vente " + v.getNom()+ " " + v.getId() + " auras lieu dans le box " + l.getNbBoxes());
         

@@ -1,12 +1,37 @@
 package test;
 
+import model.CategVente;
 import model.Cheval;
 import model.Race;
+import model.Vente;
 
 public class TestRace
 {
     public static void main (String args[]){
-        // instantiation d'une race
+       CategVente c = new CategVente();
+       c.setCode(7);
+       c.setLibelle("hiver");
+       
+       Vente v1 = new Vente();
+       v1.setId(5);
+       v1.setNom("vente 1");
+       v1.setDateDebutVente("le 9 septembre");
+       
+       Vente v2 = new Vente();
+       v2.setId(8);
+       v2.setNom("vente 2");
+       v2.setDateDebutVente("le 10 septembre");
+       
+       c.addVente(v1);
+       c.addVente(v2);
+       
+       System.out.println("La categorie de vente est " + c.getLibelle() + " et il y a donc la vente " + v1.getNom()+ " du " + v1.getDateDebutVente() + " mais aussi la vente " + v2.getNom()+ " du " + v2.getDateDebutVente());
+       System.out.println("Liste des Ventes de la categorie de vente : ");
+       
+       for (Vente v : c.getLesVentes()){
+            System.out.println("Vente numéro : " + v.getId() + " " + v.getNom());
+       }
+        /*// instantiation d'une race
         Race r = new Race();
         r.setId(4);
         r.setNom("Andalou");
@@ -31,6 +56,6 @@ public class TestRace
 		// Affichage des informations sur chevaux liées à la race
         for (Cheval c : r.getLesChevaux()){
             System.out.println("Cheval numéro : " + c.getId() + " " + c.getNom());
-        }
+        }*/
     }
 }
