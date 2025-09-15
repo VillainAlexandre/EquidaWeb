@@ -11,6 +11,9 @@ public class Cheval {
     private Race race;
     private Cheval cheval_pere;
     private Cheval cheval_mere;
+    private Course Course;
+    
+    private ArrayList<Course> lesCourses ; 
     
     private ArrayList<Cheval> lescheval_peres ;
     
@@ -67,6 +70,22 @@ public class Cheval {
         this.race = race;
     }
 
+    public void setCourse(Course Course) {
+        this.Course = Course;
+    }
+
+    public void setLescourse(ArrayList<Course> lescourse) {
+        this.lesCourses = lescourse;
+    }
+
+    public Course getCourse() {
+        return Course;
+    }
+
+    public ArrayList<Course> getLescourse() {
+        return lesCourses;
+    }
+
     public void setLescheval_peres(ArrayList<Cheval> lescheval_peres) {
         this.lescheval_peres = lescheval_peres;
     }
@@ -89,6 +108,13 @@ public class Cheval {
 
     public void setLesLots(ArrayList<Lot> lesLots) {
         this.lesLots = lesLots;
+    }
+    
+    public void addCourse(Course uneCourse){
+        if (lesCourses ==null ){
+            lesCourses = new ArrayList<Course>();
+        }
+        lesCourses.add(uneCourse);
     }
     
     public void addCheval_pere(Cheval uncheval_pere){
