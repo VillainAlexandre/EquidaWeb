@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sio2
@@ -13,7 +15,9 @@ public class Course {
     private String nom;
     private String lieu;
     private int date;
+    private Cheval Cheval;
 
+    private ArrayList<Cheval> lesChevals;
     public Course() {
     }
 
@@ -55,7 +59,28 @@ public class Course {
     public void setDate(int date) {
         this.date = date;
     }
+
+    public Cheval getCheval() {
+        return Cheval;
+    }
+
+    public ArrayList<Cheval> getLesCheval() {
+        return lesChevals;
+    }
+
+    public void setCheval(Cheval Cheval) {
+        this.Cheval = Cheval;
+    }
+
+    public void setLesCheval(ArrayList<Cheval> lesCheval) {
+        this.lesChevals = lesCheval;
+    }
    
-    
+    public void addCheval(Cheval unCheval){
+        if (lesChevals ==null ){
+            lesChevals = new ArrayList<Cheval>();
+        }
+        lesChevals.add(unCheval);
+    }
     
 }

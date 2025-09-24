@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sio2
@@ -13,6 +15,8 @@ public class Lieu {
     private String ville;
     private int nbBoxes; 
     private String commentaires;
+    private Vente vente;
+ 
 
     public Lieu() {
     }
@@ -48,6 +52,10 @@ public class Lieu {
         return commentaires;
     }
 
+    public Vente getVente() {
+        return vente;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -63,6 +71,11 @@ public class Lieu {
     public void setCommentaires(String commentaires) {
         this.commentaires = commentaires;
     }
-    
+
+    public void setVente(Vente vente) {
+        this.vente = vente;
+    }
+
+   
     
 }
