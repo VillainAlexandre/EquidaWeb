@@ -11,7 +11,7 @@ public class Cheval {
     private Race race;
     private Cheval cheval_pere;
     private Cheval cheval_mere;
-    private Course Course;
+ 
     
     private ArrayList<Course> lesCourses ; 
     
@@ -70,17 +70,11 @@ public class Cheval {
         this.race = race;
     }
 
-    public void setCourse(Course Course) {
-        this.Course = Course;
-    }
 
     public void setLescourse(ArrayList<Course> lescourse) {
         this.lesCourses = lescourse;
     }
 
-    public Course getCourse() {
-        return Course;
-    }
 
     public ArrayList<Course> getLescourse() {
         return lesCourses;

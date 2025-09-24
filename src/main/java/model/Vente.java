@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import model.Lieu;
 import model.CategVente;
 /**
@@ -12,8 +15,8 @@ import model.CategVente;
 public class Vente {
     private int id;
     private String nom;
-    private String dateDebutVente; 
-    private Lieu lieu;
+    private Date dateDebutVente; 
+    private ArrayList<Lieu> lesLieux;
     private CategVente categvente;
 
     public Vente() {
@@ -27,7 +30,7 @@ public class Vente {
         this.nom = nom;
     }
 
-    public Vente(int id, String nom, String dateDebutVente) {
+    public Vente(int id, String nom, Date dateDebutVente) {
         this.id = id;
         this.nom = nom;
         this.dateDebutVente = dateDebutVente;
@@ -41,7 +44,7 @@ public class Vente {
         return nom;
     }
 
-    public String getDateDebutVente() {
+    public Date getDateDebutVente() {
         return dateDebutVente;
     }
 
@@ -53,16 +56,23 @@ public class Vente {
         this.nom = nom;
     }
 
-    public void setDateDebutVente(String dateDebutVente) {
+    public void setDateDebutVente(Date dateDebutVente) {
         this.dateDebutVente = dateDebutVente;
     }
 
-    public Lieu getLieu() {
-        return lieu;
+   
+     public ArrayList<Lieu> getLesLieux() {
+        return lesLieux;
     }
 
-    public void setLieu(Lieu lieu) {
-        this.lieu = lieu;
+    public void setLesLieux(ArrayList<Lieu> lesLieux) {
+        this.lesLieux = lesLieux;
+    }
+    public void addLieu(Lieu unLieu){
+        if (lesLieux ==null ){
+            lesLieux = new ArrayList<Lieu>();
+        }
+        lesLieux.add(unLieu);
     }
 
     public CategVente getCategvente() {

@@ -1,5 +1,6 @@
 package test;
 
+import java.sql.Date;
 import model.CategVente;
 import model.Cheval;
 import model.Enchere;
@@ -17,12 +18,12 @@ public class TestRace
        Vente v1 = new Vente();
        v1.setId(5);
        v1.setNom("vente 1");
-       v1.setDateDebutVente("le 9 septembre");
+       //v1.setDateDebutVente = new Date(0);
        
        Vente v2 = new Vente();
        v2.setId(8);
        v2.setNom("vente 2");
-       v2.setDateDebutVente("le 10 septembre");
+       //v2.setDateDebutVente = new Date(0);
        
        c.addVente(v1);
        c.addVente(v2);

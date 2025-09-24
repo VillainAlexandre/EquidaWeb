@@ -43,7 +43,7 @@ public class TestCheval {
         r.setNom("pur-sang");
         
         ch.setRace(r);
-        v.setLieu(l);
+        
         e.setLot(lo);
         lo.setVente(v);
         v.setCategvente(c);
