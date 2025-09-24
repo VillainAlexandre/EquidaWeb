@@ -50,7 +50,7 @@ public class DaoVente {
         return listerVentes;
     }
         public static Vente getConsulterVente(Connection cnx, int idVente) {
-        Vente vente = null;
+        Vente v = null;
         try {
             requeteSql = cnx.prepareStatement(
                 "SELECT v.id as v_id, v.nom as v_nom, v.dateDebutVente as v_dateDebutvente FROM vente v WHERE v.id = ?"
@@ -58,7 +58,7 @@ public class DaoVente {
             requeteSql.setInt(1, idVente);
             resultatRequete = requeteSql.executeQuery();
             if (resultatRequete.next()) {
-                Vente v = new Vente();
+                v = new Vente();
                 v.setId(resultatRequete.getInt("v_id"));
                 v.setNom(resultatRequete.getString("v_nom"));
                 v.setDateDebutVente(resultatRequete.getDate("v_dateDebutVente"));
@@ -71,7 +71,7 @@ public class DaoVente {
             e.printStackTrace();
             System.out.println("La requête de getConsulterVente a généré une exception SQL");
         }
-        return vente;
+        return v;
     }
     
     

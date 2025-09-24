@@ -18,7 +18,7 @@ public class Vente {
     private Date dateDebutVente; 
     private ArrayList<Lieu> lesLieux;
     private CategVente categvente;
-
+    private ArrayList<Lot> lesLots;
     public Vente() {
     }
 
@@ -65,6 +65,14 @@ public class Vente {
         return lesLieux;
     }
 
+    public ArrayList<Lot> getLesLots() {
+        return lesLots;
+    }
+
+    public void setLesLots(ArrayList<Lot> lesLots) {
+        this.lesLots = lesLots;
+    }
+
     public void setLesLieux(ArrayList<Lieu> lesLieux) {
         this.lesLieux = lesLieux;
     }
@@ -75,6 +83,13 @@ public class Vente {
         lesLieux.add(unLieu);
     }
 
+    public void addLot(Lot unLot){
+        if (lesLots ==null ){
+            lesLots = new ArrayList<Lot>();
+        }
+        lesLots.add(unLot);
+    }
+    
     public CategVente getCategvente() {
         return categvente;
     }
