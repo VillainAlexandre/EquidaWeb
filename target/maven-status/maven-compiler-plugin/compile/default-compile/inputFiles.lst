@@ -2,6 +2,7 @@ E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\database\DaoVente.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\model\Enchere.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\model\Lieu.java
+E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\database\DaoLot.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\servlet\ChevalServlet.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\database\DaoCheval.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\test\TestRace.java
@@ -13,6 +14,7 @@ E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\database\DaoRace.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\model\ChevalCourse.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\database\Connexionbdd.java
+E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\servlet\VenteServlet.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\model\Race.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\test\TestConnexionBdd.java
 E:\SIO2\AlexandreVillain\B2\Annouche\Neatbeans\equidaweb25Netbeans\src\main\java\model\Cheval.java

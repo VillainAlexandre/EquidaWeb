@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Cheval;
+import model.Lot;
 import model.Vente;
 
 /**
@@ -53,7 +55,7 @@ public class DaoVente {
         Vente v = null;
         try {
             requeteSql = cnx.prepareStatement(
-                "SELECT v.id as v_id, v.nom as v_nom, v.dateDebutVente as v_dateDebutvente FROM vente v WHERE v.id = ?"
+                "SELECT v.id as v_id, v.nom as v_nom, v.dateDebutVente as v_dateDebutvente, l.id as l_id, l.Cheval as l_Cheval  FROM vente v INNER JOIN lot l ON v.v_id = l.l_id WHERE v.id = ?"
             );
             requeteSql.setInt(1, idVente);
             resultatRequete = requeteSql.executeQuery();
@@ -62,10 +64,13 @@ public class DaoVente {
                 v.setId(resultatRequete.getInt("v_id"));
                 v.setNom(resultatRequete.getString("v_nom"));
                 v.setDateDebutVente(resultatRequete.getDate("v_dateDebutVente"));
+               /* Lot l = new Lot();
+                l.setId(resultatRequete.getInt("l_id"));
+                l.setCheval(Cheval);*/
                 /*Race race = new Race();
                 race.setId(resultatRequete.getInt("r_id"));
                 race.setNom(resultatRequete.getString("r_nom"));
-                cheval.setRace(race);*/
+                vente.setRace(race);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -73,6 +78,39 @@ public class DaoVente {
         }
         return v;
     }
+    public static boolean ajouterVente(Connection cnx, Vente vente) {
+    try {
+        requeteSql = cnx.prepareStatement(
+            "INSERT INTO vente (nom, dateDebutVente) VALUES (?, ?)",
+            PreparedStatement.RETURN_GENERATED_KEYS
+        );
+        requeteSql.setString(1, vente.getNom());
+        
+        // Gestion de la date de debut de vente
+        if (vente.getDateDebutVente() != null) {
+            //requeteSql.setDate(2, java.sql.Date.valueOf(vente.getDateDebutVente()));
+        } else {
+            requeteSql.setNull(2, java.sql.Types.DATE);
+        }
+        
+        requeteSql.setInt(3, vente.getId());
+        
+        int result = requeteSql.executeUpdate();
+        
+        if (result == 1) {
+            // Récupération de l'id auto-généré
+            ResultSet rs = requeteSql.getGeneratedKeys();
+            if (rs.next()) {
+                vente.setId(rs.getInt(1));
+            }
+            return true;
+        }
+        return false;
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Erreur lors de l'ajout d'une vente");
+        return false;
+    }
     
-    
-}
+}}
