@@ -25,16 +25,13 @@ public class DaoLot {
         ArrayList<Lot> lesChevaux = new ArrayList<Lot>();
         try {
             requeteSql = cnx.prepareStatement(
-                "SELECT .id as c_id, c.nom as c_nom, " +
-                "r.id as r_id, r.nom as r_nom " +
-                "FROM cheval c " +
-                "INNER JOIN race r ON c.race_id = r.id"
+                "SELECT l.id as l_id, l.prixdepart as l_prixdepart FROM Lot l  "    
             );
             resultatRequete = requeteSql.executeQuery();
             while (resultatRequete.next()) {
                 Lot l = new Lot();
                 l.setId(resultatRequete.getInt("l_id"));
-                l.setPrixDepart("500");
+                l.setPrixDepart(resultatRequete.getString("l_prixdepart"));
                 
             }
         } catch (SQLException e) {
@@ -44,18 +41,19 @@ public class DaoLot {
         return lesChevaux;
     }
     
-    public static Lot getConsulterLot(Connection cnx, int idCheval, Cheval Cheval) {
+    public static Lot getConsulterLot(Connection cnx, int idCheval) {
         Lot l = null;
         try {
             requeteSql = cnx.prepareStatement(
-                "SELECT v.id as v_id, v.nom as v_nom, v.dateDebutVente as v_dateDebutvente FROM vente v WHERE v.id = ?"
+                "SELECT l.id as l_id, l.prixdepart as l_prixdepart, c.id as c_id FROM Lot l INNER JOIN Cheval c ON c.id = l.id WHERE l.id = ?"
             );
             requeteSql.setInt(1, idCheval);
             resultatRequete = requeteSql.executeQuery();
             if (resultatRequete.next()) {
                 l = new Lot();
                 l.setId(resultatRequete.getInt("l_id"));
-                l.setCheval(Cheval);
+                l.setPrixDepart(resultatRequete.getString("l_prixdepart"));
+              
                 
                /* Cheval c = new Cheval();
                 c.setId(resultatRequete.getInt("c_id"));

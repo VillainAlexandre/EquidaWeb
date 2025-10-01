@@ -16,7 +16,8 @@ public class Course {
     private String lieu;
     private int date;
     private Cheval Cheval;
-
+    
+    private ArrayList<ChevalCourse> LesCourseByCheval;
     private ArrayList<Cheval> lesChevals;
     public Course() {
     }

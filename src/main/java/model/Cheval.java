@@ -12,7 +12,8 @@ public class Cheval {
     private Cheval cheval_pere;
     private Cheval cheval_mere;
  
-    
+    private ArrayList<ChevalCourse> LesCourseByCheval;
+            
     private ArrayList<Course> lesCourses ; 
     
     private ArrayList<Cheval> lescheval_peres ;

@@ -34,6 +34,8 @@ public class ChevalServlet extends HttpServlet {
     }
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        
+        
         String path = request.getPathInfo();
         System.out.println("PathInfo: " + path);
 

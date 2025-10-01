@@ -29,7 +29,7 @@ import model.Lot;
  *
  * @author sio2
  */
-@WebServlet(name = "VenteServlet", value = "/vente-servlet/*")
+@WebServlet(name = "venteServlet", value = "/vente-servlet/*")
 public class VenteServlet extends HttpServlet {
 
     Connection cnx;
@@ -45,7 +45,7 @@ public class VenteServlet extends HttpServlet {
         }
     }
     
-    public void doGet(HttpServletRequest request, HttpServletResponse response, Cheval Cheval) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String path = request.getPathInfo();
         System.out.println("PathInfo: " + path);
 
@@ -63,24 +63,59 @@ public class VenteServlet extends HttpServlet {
                     request.setAttribute("pLaVente", laVente);
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/Vente/show.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect(request.getContextPath() + "/Vente-servlet/lister");
+                    response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
                 }
                 
-                int idLot = Integer.parseInt(request.getParameter("idLot"));
-                Lot leLot = DaoLot.getConsulterLot(cnx, idVente, Cheval);
-                
-                if (leLot != null) {
-                    request.setAttribute("pLeLot", leLot);
-                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/Vente/show.jsp").forward(request, response);
-                } else {
-                    response.sendRedirect(request.getContextPath() + "/Vente-servlet/lister");
-                }
-            } catch (NumberFormatException e) {
+             } catch (NumberFormatException e) {
                 System.out.println("Erreur : l'id de Vente n'est pas un nombre valide");
-                response.sendRedirect(request.getContextPath() + "/Vente-servlet/lister");
+                response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
             }
 
         }
+        if ("/show".equals(path)) {
+            try {
+                int idLot = Integer.parseInt(request.getParameter("idLot"));
+                Lot leLot = DaoLot.getConsulterLot(cnx, idLot);
+                
+                if (leLot != null) {
+                    request.setAttribute("pLeLot", leLot);
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/vente/show.jsp").forward(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
+                }
+                
+             } catch (NumberFormatException e) {
+                System.out.println("Erreur : l'id de Vente n'est pas un nombre valide");
+                response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
+            }
+
+        }/*if ("/show".equals(path)) {
+            try {
+                int idVente = Integer.parseInt(request.getParameter("idVente"));
+                Vente laVente = DaoVente.getConsulterVente(cnx, idVente);
+
+                if (laVente != null) {
+                    request.setAttribute("pLaVente", laVente);
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/Vente/show.jsp").forward(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
+                }
+                
+                int idLot = Integer.parseInt(request.getParameter("idLot"));
+                Lot leLot = DaoLot.getConsulterLot(cnx, idLot);
+                
+                if (leLot != null) {
+                    request.setAttribute("pLeLot", leLot);
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/vente/show.jsp").forward(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Erreur : l'id de Vente n'est pas un nombre valide");
+                response.sendRedirect(request.getContextPath() + "/vente-servlet/lister");
+            }
+
+        }*/
 
         
 
@@ -128,11 +163,11 @@ public class VenteServlet extends HttpServlet {
             } catch (NumberFormatException e) {
                 request.setAttribute("message", "Erreur : la race sélectionnée n'est pas valide");
                 request.setAttribute("pLesRaces", DaoRace.getLesRaces(cnx));
-                this.getServletContext().getRequestDispatcher("/WEB-INF/views/Vente/add.jsp").forward(request, response);
+                this.getServletContext().getRequestDispatcher("/WEB-INF/views/vente/add.jsp").forward(request, response);
             } catch (Exception e) {
                 request.setAttribute("message", "Erreur : " + e.getMessage());
                 request.setAttribute("pLesRaces", DaoRace.getLesRaces(cnx));
-                this.getServletContext().getRequestDispatcher("/WEB-INF/views/Vente/add.jsp").forward(request, response);
+                this.getServletContext().getRequestDispatcher("/WEB-INF/views/vente/add.jsp").forward(request, response);
             }
         }
     }

@@ -61,7 +61,7 @@
                             Vente laVente = (Vente)request.getAttribute("pLaVente");
                             if(laVente != null) {
                         %>
-                         <% 
+                        <% 
                             Lot leLot = (Lot)request.getAttribute("pLeLot");
                             if(leLot != null) {
                         %>
