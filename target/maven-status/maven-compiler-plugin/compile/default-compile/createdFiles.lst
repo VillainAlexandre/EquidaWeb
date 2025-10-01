@@ -6,12 +6,13 @@ database\DaoVente.class
 database\DaoCheval.class
 model\CategVente.class
 database\DaoRace.class
-servlet\VenteServelet.class
 test\TestCheval.class
 model\Lot.class
+database\DaoLot.class
 test\TestConnexionBdd.class
 model\Course.class
 database\Connexionbdd.class
+servlet\VenteServlet.class
 model\Race.class
 model\Vente.class
 test\TestRace.class

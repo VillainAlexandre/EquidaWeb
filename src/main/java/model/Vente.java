@@ -19,6 +19,7 @@ public class Vente {
     private ArrayList<Lieu> lesLieux;
     private CategVente categvente;
     private ArrayList<Lot> lesLots;
+    
     public Vente() {
     }
 
